@@ -7,13 +7,13 @@ function Footer() {
       <footer className='footer bg-dark text-white py-4'>
         <div className='container'>
           <div className='row'>
-            <div className='col-4'>
+            <div className='col-md-4 col-sm-12'>
               <h3>About</h3>
               <div>
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's</p>
               </div>
             </div>
-            <div className='col-4'>
+            <div className='col-md-4 col-sm-12'>
               <h3>Quick Links</h3>
               <div>
                 <ul>
@@ -26,7 +26,7 @@ function Footer() {
                 </ul>
               </div>
             </div>
-            <div className='col-4'>
+            <div className='col-md-4 col-sm-12'>
               <h3>Contact</h3>
               <div>
                 <p>

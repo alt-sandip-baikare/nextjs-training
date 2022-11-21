@@ -17,10 +17,10 @@ function ProductSingle({ product }) {
 
   return (
     <>
-      <div className='container'>
+      <div className='container my-4'>
         <div className='row'>
           <div className='col-md-6'>
-            <Image src={product.image} width="500" height="500" />
+            <Image src={product.image} width="500" height="500" className="img-fluid" />
           </div>
           <div className='col-md-6 '>
             <div className='product-details pt-5'>
@@ -44,7 +44,7 @@ function ProductSingle({ product }) {
           </div>
         </div>
         <div className=''>
-          <div className='description'>
+          <div className='description '>
             <h3>Product Description</h3>
             {product.description}
           </div>
