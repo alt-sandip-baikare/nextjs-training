@@ -18,11 +18,13 @@ You can start editing the page by modifying `pages/index.js`. The page auto-upda
 
 The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-## Project Scrrenshots
+## Ecommerce Project Screenshots
 
-[Product Listing Scrrenshot](public/ecom-products-list.png))
+Products Listing Screenshot
+![Products Listing Screenshot](public/ecom-products-list.png)
 
-[Product Details Page](public/products-single.png))
+Product Details Page
+![Product Details Page](public/products-single.png)
 
 ## Learn More
 
