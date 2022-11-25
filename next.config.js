@@ -11,6 +11,16 @@ const nextConfig = {
       },
     ],
   },
+  env:{
+    NavItems :[
+      { link: '/', name : 'Home' },
+      { link: '/about', name : 'About' },
+      { link: '/courses', name : 'Courses' },
+      { link: '/facilities', name : 'Facilities' },
+      { link: '/products', name: 'Products' },
+      { link: '/contact', name: 'Contact' },
+    ]
+  }
 }
 
 module.exports = nextConfig

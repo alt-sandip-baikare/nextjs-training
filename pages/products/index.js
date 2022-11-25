@@ -1,9 +1,19 @@
 import React from 'react'
 import ProductItem from '../../common/ProductItem';
+import { useRouter } from 'next/router';
+import Head from 'next/head'
 
 function products(props) {
     const { products } = props;
+    const router = useRouter()
+
+    if (router.isFallback) return <div>Loading...</div>;
+
     return (
+        <>
+        <Head>
+            <title> Products </title>
+        </Head>
         <div className='container'>
             <div className='row'>
                 <h1 className='h1 py-2'>Products</h1>
@@ -20,8 +30,7 @@ function products(props) {
                 }
             </div>
         </div>
-
-
+        </>
     )
 }
 

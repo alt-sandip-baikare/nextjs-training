@@ -18,8 +18,8 @@ function ProductItem({ product }) {
                     </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item"> 
-                            <strong className=''>Rating: </strong> {product.rating.rate} ({product.rating.count})
-                            <strong className='px-2'>Price: ₹ </strong> {product.price}
+                            <span className='float-start'><strong>Rating: </strong> {product.rating.rate} (<span title={"Total rating given " + product.rating.count + " people"}>{product.rating.count})</span></span>
+                            <span className='float-end'><strong >Price: ₹ </strong> {product.price}</span>
                         </li>                        
                     </ul>
                     <div class="card-body d-flex">
