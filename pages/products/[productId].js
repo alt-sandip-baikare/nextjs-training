@@ -4,6 +4,7 @@ import React from 'react'
 import Link from 'next/link';
 import Image from 'next/image';
 import Head from 'next/head'
+import styles from '../../styles/ProductItem.module.css'
 
 
 function ProductSingle({ product }) {
@@ -34,7 +35,7 @@ function ProductSingle({ product }) {
           </div>
           <div className='col-md-6 '>
             <div className='product-details pt-5'>
-              <h1>{product.title}</h1>
+              <h1 className='fw-bold fs-4'>{product.title}</h1>
               <div className='product-data'>
                 <p>
                   <strong> Price: </strong>
@@ -54,8 +55,8 @@ function ProductSingle({ product }) {
           </div>
         </div>
         <div className=''>
-          <div className='description '>
-            <h3>Product Description</h3>
+          <div className='description fw-light'>
+            <h3 className='fw-semibold fs-5'>Product Description</h3>
             {product.description}
           </div>
         </div>

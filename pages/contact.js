@@ -2,9 +2,9 @@ import React from 'react'
 
 function contact() {
   return (
-    <div>
+    <div className='container'>
         <h1>
-            Contact Page
+            Contact
         </h1>
     </div>
   )

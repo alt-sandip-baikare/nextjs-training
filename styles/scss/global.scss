@@ -1,0 +1,26 @@
+$theme-colors: (
+    'primary': #712cf9,
+    'secondary': #5468ff,
+    'success': #29ad67,
+    'info': #11b69a,
+    'warning': #FFCB42,
+    'danger': #ff007f,
+    'light': #b9bdc2,
+    'dark': #212529,
+    'purple': #4a61c0,
+    'indigo': #6610f2,
+    "accent1": #e46358,
+    "accent2": #349fb6,
+    "accent3": #d2c559,
+    "accent4": #258375,
+);
+
+.nav-link {
+    color: white !important;
+
+    :hover {
+        font-weight: 700;
+    }
+}
+
+@import '/node_modules/bootstrap/scss/bootstrap.scss';

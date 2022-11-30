@@ -10,7 +10,7 @@ function Navigation() {
   
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-light">
+      <nav className="navbar navbar-expand-lg bg-primary text-white">
         <div className="container-fluid">          
           <Link className="navbar-brand" href="/"> Navbar </Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,11 +19,10 @@ function Navigation() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               { NavItems.map( (item, index)=> {
-                return <>
-                        <li key={index} className={"nav-item px-2 "}>
-                          <Link href={item.link} className={(router.asPath === item.link) ? style.active : ''} > {item.name} </Link>
+                let active = (router.asPath === item.link) ? style.active : ''
+                return <li key={index} className={"nav-item px-2 "}>
+                          <Link href={item.link} className={'nav-link ' + active} > {item.name} </Link>
                         </li>
-                      </>
               } ) }
             </ul>
             <form className="d-flex" role="search">
