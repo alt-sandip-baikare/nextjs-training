@@ -23,9 +23,7 @@ const nextConfig = {
       { link: '/products', name: 'Products' },
       { link: '/contact', name: 'Contact' },
     ],
-    env: {
-        mongodburl: "mongodb+srv://altudosandipbaikare:LbA2deHIv1y3ifUX@cluster0.zkybp17.mongodb.net/?retryWrites=true&w=majority",
-    }
+    MONGODB_URI: process.env.MONGODB_URI,
   },
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],

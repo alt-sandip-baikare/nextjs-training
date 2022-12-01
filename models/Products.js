@@ -4,6 +4,7 @@ const ProductsSchema = mongoose.Schema({
     id:{
         type: Number,
         required: true,
+        unique: true
     },
     title: {
         type: String,

@@ -6,12 +6,7 @@ const connectDB = handler => async (req, res) => {
     return handler(req, res);
   }
   // Use new db connection
-  mongoose.connect(process.env.mongodburl, {
-        useUnifiedTopology: true,
-        useFindAndModify: false,
-        useCreateIndex: true,
-        useNewUrlParser: true
-    });
+  mongoose.connect(process.env.MONGODB_URI);
   return handler(req, res);
 };
 
