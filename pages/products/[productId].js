@@ -70,7 +70,7 @@ export default ProductSingle
 
 export const getStaticProps = async ({ params }) => {
   console.log(params.productId)
-  const response = await fetch(`https://fakestoreapi.com/products/${params.productId}/`);
+  const response = await fetch(process.env.FAKE_API_URL + `products/${params.productId}/`);
   const product = await response.json();
   console.log(response)
   return {

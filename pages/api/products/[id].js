@@ -7,7 +7,7 @@ const handler = async (req, res) => {
     switch (req.method) {
         case "GET":
             try {
-                const products = await Products.find({ id: req.query.id })
+                const products = await Products.findOne({ id: req.query.id })
                 res.status(200).json({ 'data': products })
             } catch (error) {
                 res.status(400).json({ message: error.message })
@@ -15,13 +15,20 @@ const handler = async (req, res) => {
             break;
         case 'PUT':
             try {
-                let temp = new Products({
+                let temp = {
                     title: req.body.title,
                     price: req.body.price,
-                    category: req.body.category 
-                })
+                    category: req.body.category,
+                    image: req.body.image,
+                    rating: {
+                        $set: {
+                            "rating.rate": req.body.rating.rate,
+                            "rating.count" : req.body.rating.count,
+                        }
+                    }
+                }
                 let ProductId = req.query.id
-                const response = await Products.findByIdAndUpdate({id: parseInt(ProductId.trim()) }, { $set : temp } )
+                const response = await Products.findOneAndUpdate({id: parseInt(ProductId.trim()) }, { $set : temp }, {new:true} )
                 res.status(202).json(response)
             } catch (error) {
                 res.status(400).json({ message: error.message })

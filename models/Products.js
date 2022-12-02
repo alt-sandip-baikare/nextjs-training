@@ -1,5 +1,14 @@
 const { default: mongoose } = require("mongoose")
 
+const RatingSchema = mongoose.Schema({
+    rate: {
+        Number
+    },
+    count: {
+        Number
+    }
+})
+
 const ProductsSchema = mongoose.Schema({
     id:{
         type: Number,
@@ -18,7 +27,11 @@ const ProductsSchema = mongoose.Schema({
     },
     description:{
         type: String,
-    }
+    },
+    image:{
+        type: String
+    },
+    rating: RatingSchema
 })
 
 mongoose.models = {};

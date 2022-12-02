@@ -1,31 +1,26 @@
-import Products from '../../../models/Products'
-import connectDB from '../../../middleware/mongodb'
-
-
+import connectDB from "../../../middleware/mongodb";
+import Users from "../../../models/Users";
 
 const handler = async (req, res) => {
 
     switch (req.method) {
         case 'GET':
             try {
-                const products = await Products.find({})            
-                res.status(200).json({ 'data': products, 'meta': { 'count': products.length }})
+                const Users = await Users.find({})            
+                res.status(200).json({ 'data': products, 'meta': { 'count': Users.length }})
             } catch (error) {
                 res.status(400).json({message: error.message})
             }
             break;
         case 'POST':
             try {
-                let temp = new Products({
+                let temp = new Users({
                     id: req.body.id,
-                    title: req.body.title,
-                    price: req.body.price,
-                    category: req.body.category,
-                    image: req.body.image,
-                    rating: {
-                        rate: req.body.rating.rate,
-                        count: req.body.rating.count,
-                    }
+                    email: req.body.email,
+                    username: req.body.username,
+                    fullaname: req.body.fullaname,
+                    avatar: req.body.avatar,
+                    image: req.body.image
                 })
                 const response = await temp.save()
                 res.status(201).json(response)

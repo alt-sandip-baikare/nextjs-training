@@ -37,7 +37,7 @@ function products(props) {
 export default products
 
 export const getStaticProps = async () => {
-    const response = await fetch("https://fakestoreapi.com/products/")
+    const response = await fetch(process.env.FAKE_API_URL + 'products/')
     const data = await response.json()
     return {
         props: {

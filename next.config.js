@@ -28,6 +28,15 @@ const nextConfig = {
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
   },
+  /**
+   * To In that case requesting /api would serve content of /another-directory.
+   * 
+   * @link https://stackoverflow.com/a/60892927/3431899
+   * 
+   */
+  // rewrites: [
+  //   { source: '/api/:path*', destination: '/alt-json-api/:path*' }
+  // ],
 
 }
 
