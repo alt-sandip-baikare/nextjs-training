@@ -4,33 +4,39 @@ import Users from "../../../models/Users";
 const handler = async (req, res) => {
 
     switch (req.method) {
-        case 'GET':
-            try {
-                const Users = await Users.find({})            
-                res.status(200).json({ 'data': products, 'meta': { 'count': Users.length }})
-            } catch (error) {
-                res.status(400).json({message: error.message})
-            }
-            break;
         case 'POST':
             try {
-                let temp = new Users({
-                    id: req.body.id,
-                    email: req.body.email,
-                    username: req.body.username,
-                    fullaname: req.body.fullaname,
-                    avatar: req.body.avatar,
-                    image: req.body.image
-                })
-                const response = await temp.save()
-                res.status(201).json(response)
+                console.log(req.body)
+                // fetch user and test password verification
+                Users.findOne({ email: req.body.email }, function (err, user) {
+                    if (err) {
+                        res.status(200).json({ status: false, message: "Invalid User !" })
+                    } else if (!user) {
+                        res.status(200).json({ status: false, user, message: "Invalid User credentials!1" })
+                    } else {
+                        //matching password
+                        user.comparePassword(req.body.password, function (err, isMatch) {
+                            if (err) {
+                                res.status(200).json({ status: false, message: err.message })
+                            } else if (!isMatch) {
+                                res.status(200).json({ status: false, message: "Invalid User credentials!2" })
+                            } else {
+                                // Success
+                                user.password = undefined; // remove password field from response
+                                res.status(200).json({ status: isMatch, user, message: "User logged in successfully!" })
+                            }
+                        });
+
+                    }
+                });
+
             } catch (error) {
                 res.status(400).json({ message: error.message })
             }
             break;
-       
+
         default:
-            res.status(403).json({message: 'Method Not Allowed'})
+            res.status(403).json({ message: 'Method Not Allowed' })
             break;
     }
 }

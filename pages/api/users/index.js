@@ -13,19 +13,20 @@ const handler = async (req, res) => {
             }
             break;
         case 'POST':
+            
             try {
                 let user = new Users({
                     id: req.body.id,
                     email: req.body.email,
-                    username: req.body.username,
-                    fullaname: req.body.fullaname,
-                    avatar: req.body.avatar,
-                    image: req.body.image
+                    password: req.body.password,
+                    mobile: req.body.mobile,
+                    fullname: req.body.fullname,
+                    avatar: req.body.avatar
                 })
                 const response = await user.save()
-                res.status(201).json(response)
+                res.status(201).json({ status: true, data: response })
             } catch (error) {
-                res.status(400).json({ message: error.message })
+                res.status(400).json({ status: false, message: error.message })
             }
             break;
        
